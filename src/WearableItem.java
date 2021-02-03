@@ -15,7 +15,7 @@ public abstract class WearableItem extends Item{
 	public abstract void doCommand(String string);
 
 	@Override
-	public abstract void printYourself();
+	public abstract void printYourself(Player player);
 
 	public boolean isWearing() {
 		return isWearing;

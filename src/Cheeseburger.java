@@ -12,8 +12,8 @@ public class Cheeseburger extends Eatables{
 	}
 
 	@Override
-	public void printYourself() {
+	public void printYourself(Player player) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Det finns cheese på menyn. ");
 	}
 }

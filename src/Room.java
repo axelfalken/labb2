@@ -10,10 +10,11 @@ public class Room extends Location{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void describeYourself() {
+	@Override
+	public void describeYourself(Player player) {
 		
 		if(isVisited()){
-			System.out.println("Du Ã¤r Ã¥terigen pÃ¥ " + this.getName() + ".");
+			System.out.println("Du är återigen på " + this.getName() + ".");
 		} else {
 			System.out.println(getDescription());
 			
@@ -22,7 +23,7 @@ public class Room extends Location{
 		}
 		for (int i = 0; i < 4; i++) {
 			if (getAlternatives()[i] != null) {
-				System.out.println("Du kan gÃ¥ " + getDirections()[i] + " mot " + getAlternatives()[i].getName() + ".\n");
+				System.out.println("Du kan gå " + getDirections()[i] + " mot " + getAlternatives()[i].getName() + ".\n");
 			}
 		}
 

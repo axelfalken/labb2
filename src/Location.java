@@ -15,7 +15,7 @@ public class Location {
 		// TODO Auto-generated constructor stub
 		this.setName(string);
 		this.setDescription(description);
-		this.partyPeople = partyPeople;
+		this.setPartyPeople(partyPeople);
 		this.setVisited(false);
 		this.alternatives = new Location[4];
 		this.items = new ArrayList<Item>();
@@ -25,14 +25,23 @@ public class Location {
 		return "";
 	}
 		
-	public void describeYourself() {
+	public void describeYourself(Player player) {
+		
+		//Avgör om den långa eller korta beskrivningen ska printas.
 		if(isVisited()){
 			System.out.println("Du är återigen på " + this.getName() + ".");
 		} else {
 			System.out.println(getDescription());
 			setVisited(true);
 		}
-		for (int i = 0; i < 4; i++) {
+		
+		//Skriver ut vilka items som finns och vad de kan göra
+		for(Item item : this.items) {
+			item.printYourself(player);
+		}
+		
+		//Skriver ut vilka vägval som finns att gå
+		for (int i = 0; i < getAlternatives().length; i++) {
 			if (alternatives[i] != null) {
 				System.out.println("Du kan cykla " + getDirections()[i] + " mot " + alternatives[i].getName() + ".\n");
 			}
@@ -77,6 +86,14 @@ public class Location {
 
 	public static void setDirections(String[] directions) {
 		Location.directions = directions;
+	}
+
+	public int getPartyPeople() {
+		return partyPeople;
+	}
+
+	public void setPartyPeople(int partyPeople) {
+		this.partyPeople = partyPeople;
 	}
 
 }

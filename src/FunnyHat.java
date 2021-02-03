@@ -12,8 +12,8 @@ public class FunnyHat extends WearableItem {
 	}
 
 	@Override
-	public void printYourself() {
+	public void printYourself(Player player) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("På hatthyllan ligger en extremt rolig hatt. ");
 	}
 }

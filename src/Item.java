@@ -13,7 +13,7 @@ public abstract class Item {
 	
 	public abstract void doCommand(String string);
 	
-	public abstract void printYourself();
+	public abstract void printYourself(Player player);
 
 	public int getPrice() {
 		return price;

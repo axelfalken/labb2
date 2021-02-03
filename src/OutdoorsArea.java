@@ -10,10 +10,11 @@ public class OutdoorsArea extends Location{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void describeYourself() {
+	@Override
+	public void describeYourself(Player player) {
 		
 		if(isVisited()){
-			System.out.println("Du Ã¤r Ã¥terigen pÃ¥ " + getName() + ".");
+			System.out.println("Du är återigen på " + getName() + ".");
 		} else {
 			System.out.println(getDescription());
 			

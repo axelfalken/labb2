@@ -11,5 +11,5 @@ public abstract class Tool extends Item {
 	public abstract void doCommand(String string);
 
 	@Override
-	public abstract void printYourself();
+	public abstract void printYourself(Player player);
 }

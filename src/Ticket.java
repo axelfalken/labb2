@@ -24,8 +24,8 @@ public class Ticket extends Tool {
 	}
 
 	@Override
-	public void printYourself() {
+	public void printYourself(Player player) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Det ligger en biljett på marken. ");
 	}
 }

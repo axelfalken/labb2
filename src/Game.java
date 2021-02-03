@@ -38,7 +38,7 @@ public class Game {
 	public void run() {
 		String name;
 
-		System.out.println("VÃ¤lkommen till en utekväll i Linköping!\nVad heter du?");
+		System.out.println("Välkommen till en utekväll i Linköping!\nVad heter du?");
 		name = keyboard.nextLine();
 		player = new Player(name, locations.get(0));
 		System.out.println("Hej " + name
@@ -47,8 +47,8 @@ public class Game {
 		while (true) {
 			String command;
 
-			player.getLocation().describeYourself();
-			System.out.println("Vart vill du röra dig?");
+			player.getLocation().describeYourself(player);
+			System.out.println("Vad vill du göra?");
 			command = keyboard.nextLine();
 			player.doCommand(command);
 		}
