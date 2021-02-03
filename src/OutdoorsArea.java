@@ -17,13 +17,16 @@ public class OutdoorsArea extends Location{
 			System.out.println("Du är återigen på " + getName() + ".");
 		} else {
 			System.out.println(getDescription());
-			
 			setVisited(true);
-			
 		}
+		
+		for(Item item : this.getItems()) {
+			item.printYourself(player);
+		}
+		
 		for (int i = 0; i < 4; i++) {
 			if (getAlternatives()[i] != null) {
-				System.out.println("Du kan cykla " + getDirections()[i] + " mot " + getAlternatives()[i].getName() + ".\n");
+				System.out.println("Du kan cykla " + getDirections()[i] + " mot " + getAlternatives()[i].getName() + ".");
 			}
 		}
 

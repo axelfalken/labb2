@@ -14,6 +14,7 @@ public class Ovve extends WearableItem {
 	@Override
 	public void printYourself(Player player) {
 		// TODO Auto-generated method stub
-		System.out.println("Det hänger en smutsig och illaluktande ovve ovve på en galge. ");
+		
+		System.out.println("Det hänger en smutsig och illaluktande ovve på en galge. ");
 	}
 }

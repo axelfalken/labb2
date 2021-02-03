@@ -10,7 +10,7 @@ public class Game {
 		keyboard = new Scanner(System.in);
 		locations = new ArrayList<>();
 		
-		Location start = new Location("Hemma", "Du är ensam hemma i din lilla etta.\nTill maten slinker både en och två bira ner och du börjar bli sugen på att dra vidare. \nOvven är knuten, vart ska du fortsätta kvällen?", 0);
+		Location start = new Location("Hemma", "Du är ensam hemma i din lilla etta.\nTill maten slinker både en och två bira ner och du börjar bli sugen på att dra vidare. ", 0);
 		Location utekrök = new OutdoorsArea("Utekrök", "Du kommer till vallamassivet. Det är skymning och burkar ligger slängda i varje buske. \nEn grupp festerister spelar hög musik och skriker ramsor. \nEn kall bris kyler dig genom den tunna sommarjackan.", 30, "soligt");
 		Location korrefest = new Room("Korrefest", "Du anländer till en korridorsfest i Ryd. \nSom vanligt är det alldeles för många personer på alldeles för få kvadratmeter. \nSpriten flödar och i högtalarna hörs schlager.", 20, 20);
 		Location flamman = new Room("Flamman", "Du kommer till slut ner i till flamman. I underjorden är det mörkt och dunkelt. \nStudenterna kämpar för att verka nyktra framför vakterna. Stämningen är på topp.", 200, 80);
@@ -26,6 +26,17 @@ public class Game {
 		donken.setAlternatives(new Location[]{start, null, efterfest, null});
 		efterfest.setAlternatives(new Location[] {start, null, null, null});
 		
+		start.addItem(new Ovve());
+		start.addItem(new Ticket());
+		korrefest.addItem(new FunnyHat());
+		korrefest.addItem(new Beer());
+		korrefest.addItem(new Ticket());
+		flamman.addItem(new Beer());
+		kårallen.addItem(new Beer());
+		utekrök.addItem(new Ticket());
+		donken.addItem(new Cheeseburger());
+		efterfest.addItem(new Beer());
+		
 		locations.add(start);
 		locations.add(utekrök);
 		locations.add(korrefest);
@@ -38,19 +49,20 @@ public class Game {
 	public void run() {
 		String name;
 
-		System.out.println("Välkommen till en utekväll i Linköping!\nVad heter du?");
+		System.out.print("Välkommen till en utekväll i Linköping!\nVad heter du? ");
 		name = keyboard.nextLine();
 		player = new Player(name, locations.get(0));
-		System.out.println("Hej " + name
+		System.out.println("\nHej " + name
 				+ ", din stökiga utekväll ska precis börja.\nDu kan röra dig i de fyra riktiningarna east/west/north/south.\n(Tips: Du kan använda kommandot [help] när som helst för att få hjälp)");
 
 		while (true) {
 			String command;
 
 			player.getLocation().describeYourself(player);
-			System.out.println("Vad vill du göra?");
+			System.out.print("Vad vill du göra? ");
 			command = keyboard.nextLine();
 			player.doCommand(command);
+			System.out.println("");
 		}
 	}
 }

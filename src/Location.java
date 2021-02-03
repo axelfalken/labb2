@@ -18,7 +18,7 @@ public class Location {
 		this.setPartyPeople(partyPeople);
 		this.setVisited(false);
 		this.alternatives = new Location[4];
-		this.items = new ArrayList<Item>();
+		this.setItems(new ArrayList<Item>());
 		}
 	
 	public String doCommand(String command) {
@@ -36,16 +36,20 @@ public class Location {
 		}
 		
 		//Skriver ut vilka items som finns och vad de kan göra
-		for(Item item : this.items) {
+		for(Item item : this.getItems()) {
 			item.printYourself(player);
 		}
 		
 		//Skriver ut vilka vägval som finns att gå
 		for (int i = 0; i < getAlternatives().length; i++) {
 			if (alternatives[i] != null) {
-				System.out.println("Du kan cykla " + getDirections()[i] + " mot " + alternatives[i].getName() + ".\n");
+				System.out.println("Du kan cykla " + getDirections()[i] + " mot " + alternatives[i].getName() + ".");
 			}
 		}
+	}
+	
+	public void addItem(Item item) {
+		this.getItems().add(item);
 	}
 
 	public Location[] getAlternatives() {
@@ -94,6 +98,14 @@ public class Location {
 
 	public void setPartyPeople(int partyPeople) {
 		this.partyPeople = partyPeople;
+	}
+
+	public ArrayList<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(ArrayList<Item> items) {
+		this.items = items;
 	}
 
 }
